@@ -66,8 +66,10 @@ const config: Config = {
         glow: "0 0 0 1px rgb(15 118 110 / 0.1), 0 4px 20px -2px rgb(15 118 110 / 0.2)",
       },
       animation: {
-        "fade-in": "fadeIn 0.4s ease-out",
-        "slide-up": "slideUp 0.5s ease-out",
+        "fade-in": "fadeIn 0.35s ease-out forwards",
+        "slide-up": "slideUp 0.4s ease-out forwards",
+        "card-in": "cardIn 0.35s ease-out forwards",
+        "shimmer": "shimmer 1.5s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -75,9 +77,21 @@ const config: Config = {
           "100%": { opacity: "1" },
         },
         slideUp: {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        cardIn: {
+          "0%": { opacity: "0", transform: "translateY(8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        shimmer: {
+          "0%, 100%": { backgroundPosition: "200% 0" },
+          "50%": { backgroundPosition: "-200% 0" },
+        },
+      },
+      transitionDuration: {
+        250: "250ms",
+        350: "350ms",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

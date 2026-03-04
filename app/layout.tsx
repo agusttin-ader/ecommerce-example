@@ -30,9 +30,14 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${syne.variable} ${dmSans.variable}`}>
       <body className="min-h-screen flex flex-col font-sans overflow-x-hidden">
+        <a href="#main-content" className="skip-link">
+          Saltar al contenido
+        </a>
         <CartProvider>
           <Header />
-          <main className="flex-1 w-full min-w-0">{children}</main>
+          <main id="main-content" className="flex-1 w-full min-w-0" tabIndex={-1}>
+            {children}
+          </main>
           <Footer />
         </CartProvider>
       </body>

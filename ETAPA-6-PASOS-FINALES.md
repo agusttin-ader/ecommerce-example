@@ -71,6 +71,7 @@ Hoy el carrito solo vive en el navegador (localStorage). Para un ecommerce real 
 ## 5. Subir el sitio (hosting y dominio)
 
 - **Hosting**: desplegar el proyecto en [Vercel](https://vercel.com) (recomendado para Next.js), Netlify, o un VPS.
+- **Build desde el código (importante)**: configurá el hosting para que haga **build from source**: que clone el repo y ejecute `npm install` + `next build` en su entorno. No subas nunca una carpeta `.next` generada en tu PC. Así evitás errores de caché o archivos faltantes en producción; cada deploy es un build limpio.
 - **Dominio**: comprar dominio y apuntarlo al hosting (DNS).
 - **HTTPS**: el hosting suele darlo automático. Imprescindible para pagos.
 - **Variables de entorno**: configurar en el panel del hosting (`NEXT_PUBLIC_*` y secretos como `MERCADOPAGO_ACCESS_TOKEN`).

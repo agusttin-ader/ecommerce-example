@@ -60,24 +60,28 @@ export function CheckoutContent() {
             En un ecommerce real aquí irían email, teléfono y envío. Por ahora es solo demo.
           </p>
           <div className="space-y-4">
-            <label className="block min-w-0">
+            <label htmlFor="checkout-nombre" className="block min-w-0">
               <span className="block text-sm font-medium text-ink-secondary mb-1">Nombre</span>
               <input
+                id="checkout-nombre"
                 type="text"
                 value={contact.nombre}
                 onChange={(e) => setContact((c) => ({ ...c, nombre: e.target.value }))}
                 placeholder="Tu nombre"
-                className="input-touch w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500 min-w-0"
+                autoComplete="name"
+                className="input-touch w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 min-w-0"
               />
             </label>
-            <label className="block min-w-0">
+            <label htmlFor="checkout-email" className="block min-w-0">
               <span className="block text-sm font-medium text-ink-secondary mb-1">Email</span>
               <input
+                id="checkout-email"
                 type="email"
                 value={contact.email}
                 onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
                 placeholder="tu@email.com"
-                className="input-touch w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500 min-w-0"
+                autoComplete="email"
+                className="input-touch w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 min-w-0"
               />
             </label>
           </div>

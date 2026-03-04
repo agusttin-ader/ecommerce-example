@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import type { Product } from "@/lib/types";
 
@@ -22,13 +23,20 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 min-w-0">
-      <div className="aspect-square max-md:aspect-[4/3] bg-stone-100 rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center min-w-0">
+      <div className="aspect-square max-md:aspect-[4/3] bg-stone-100 rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center min-w-0 relative">
         {product.image ? (
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover"
-          />
+          product.image.startsWith("/") ? (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
+          ) : (
+            <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+          )
         ) : (
           <span className="text-stone-400 text-sm font-medium">Imagen del producto</span>
         )}

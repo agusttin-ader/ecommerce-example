@@ -25,7 +25,15 @@ export function Footer() {
               Checkout
             </Link>
           </nav>
-          <div className="xs:col-span-2 lg:col-span-2 flex flex-col justify-end">
+          <div className="xs:col-span-2 lg:col-span-2 flex flex-col justify-end gap-4">
+            <nav className="flex flex-wrap gap-x-4 gap-y-1">
+              <Link href="/terminos" className="text-stone-400 hover:text-white transition-colors text-xs sm:text-sm py-1 min-h-touch flex items-center">
+                Términos
+              </Link>
+              <Link href="/privacidad" className="text-stone-400 hover:text-white transition-colors text-xs sm:text-sm py-1 min-h-touch flex items-center">
+                Privacidad
+              </Link>
+            </nav>
             <p className="text-stone-500 text-xs max-w-sm leading-relaxed">
               Cuando definas el rubro, reemplazá contenido e imágenes. Misma estructura, tu marca.
             </p>

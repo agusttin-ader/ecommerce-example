@@ -22,6 +22,20 @@ npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000).
 
+### Si ves "Internal Server Error" en desarrollo
+
+A veces la caché de Next (`.next`) se corrompe (cierre brusco, varios procesos, etc.). Solución:
+
+```bash
+npm run dev:clean
+```
+
+Eso borra `.next` y arranca el servidor de nuevo. No afecta tu código ni a producción.
+
+### Producción
+
+En producción (Vercel, Netlify, etc.) **no se usa** la carpeta `.next` de tu máquina: la plataforma hace un `next build` en un entorno limpio en cada deploy. Ese error de caché es solo posible en desarrollo local. Para estar seguros, desplegá siempre desde el repo (build from source), no subiendo una carpeta `.next` pregenerada.
+
 ## Estructura (Etapa 1)
 
 - `app/` — Rutas y páginas (App Router)

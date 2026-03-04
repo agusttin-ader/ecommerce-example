@@ -25,16 +25,17 @@ export default function HomePage() {
       </section>
 
       <section className="container-narrow py-10 sm:py-14 lg:py-20">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6 sm:mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6 sm:mb-8 animate-slide-up">
           <div className="min-w-0">
             <h2 className="display-heading text-display-md">Productos</h2>
             <p className="page-subheading mt-1">Listado de productos de ejemplo</p>
           </div>
           <Link
             href="/productos"
-            className="text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors shrink-0"
+            className="text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors shrink-0 inline-flex items-center gap-1 group/link"
           >
-            Ver todos →
+            Ver todos
+            <span className="inline-block transition-transform duration-200 group-hover/link:translate-x-0.5">→</span>
           </Link>
         </div>
         <ProductGrid products={products} />

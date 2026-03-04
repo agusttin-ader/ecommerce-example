@@ -75,7 +75,7 @@ export function ProductFilters() {
             placeholder="Buscar por nombre o descripción..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            className="input-touch w-full px-4 py-3 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+            className="input-touch w-full px-4 py-3 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent"
           />
         </label>
         <label className="flex items-center gap-2 shrink-0 min-w-0">
@@ -83,7 +83,7 @@ export function ProductFilters() {
           <select
             value={orden}
             onChange={(e) => setParams({ orden: e.target.value })}
-            className="input-touch min-w-0 px-3 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="input-touch min-w-0 px-3 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>

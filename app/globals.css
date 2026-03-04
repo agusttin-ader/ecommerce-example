@@ -20,6 +20,19 @@
     overflow-x: hidden;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     @apply text-ink bg-surface-muted antialiased overflow-x-hidden min-w-0;
   }
@@ -57,15 +70,23 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-primary {
-    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-brand-600 text-white hover:bg-brand-700 focus:ring-brand-500 active:scale-[0.98] shadow-sm hover:shadow-glow;
+    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-brand-600 text-white hover:bg-brand-700 focus-visible:ring-brand-500 active:scale-[0.98] shadow-sm hover:shadow-glow;
   }
 
   .btn-secondary {
-    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-surface border border-stone-200 text-ink-secondary hover:bg-stone-50 hover:text-ink focus:ring-stone-300;
+    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-surface border border-stone-200 text-ink-secondary hover:bg-stone-50 hover:text-ink focus-visible:ring-stone-300;
+  }
+
+  .skip-link {
+    @apply absolute left-4 top-4 z-[100] -translate-y-full rounded-xl bg-ink px-4 py-3 text-white font-medium shadow-lg transition-transform focus:outline-none focus-visible:translate-y-0 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2;
+  }
+
+  .skip-link:not(:focus):not(:focus-visible) {
+    @apply sr-only;
   }
 
   .input-touch {
@@ -73,12 +94,12 @@
   }
 
   .nav-link {
-    @apply relative px-3 py-2 text-sm font-medium text-ink-secondary hover:text-ink transition-colors;
+    @apply relative px-3 py-2 text-sm font-medium text-ink-secondary hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:rounded-lg;
   }
 
   .nav-link::after {
     content: "";
-    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-brand-600 scale-x-0 origin-center transition-transform duration-200 rounded-full;
+    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-brand-600 scale-x-0 origin-center transition-transform duration-250 ease-out rounded-full;
   }
 
   .nav-link:hover::after,
@@ -95,7 +116,38 @@
   }
 
   .card-hover {
-    @apply card transition-all duration-300 hover:shadow-card-hover hover:border-stone-300/80 hover:-translate-y-0.5;
+    @apply card transition-[transform,box-shadow,border-color] duration-250 ease-out hover:shadow-card-hover hover:border-stone-300/80 hover:-translate-y-0.5;
+  }
+
+  @media (hover: none) {
+    .card-hover {
+      @apply duration-200;
+    }
+  }
+
+  .animate-card-in {
+    animation: cardIn 0.35s ease-out forwards;
+  }
+
+  .stagger-1 { animation-delay: 0ms; }
+  .stagger-2 { animation-delay: 40ms; }
+  .stagger-3 { animation-delay: 80ms; }
+  .stagger-4 { animation-delay: 120ms; }
+  .stagger-5 { animation-delay: 160ms; }
+  .stagger-6 { animation-delay: 200ms; }
+  .stagger-7 { animation-delay: 240ms; }
+  .stagger-8 { animation-delay: 280ms; }
+  .stagger-9 { animation-delay: 320ms; }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgb(231 229 228 / 0.4) 0%,
+      rgb(231 229 228 / 0.8) 50%,
+      rgb(231 229 228 / 0.4) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
   }
 
   .price-tag {

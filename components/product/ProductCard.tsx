@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Product } from "@/lib/types";
 
 interface ProductCardProps {
@@ -7,20 +8,30 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <Link href={`/productos/${product.slug}`} className="group block card-hover min-w-0">
+    <Link href={`/productos/${product.slug}`} className="group block card-hover min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:rounded-3xl">
       <div className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
         {product.image ? (
-          <img
-            src={product.image}
-            alt={product.name}
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-          />
+          product.image.startsWith("/") ? (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover group-hover:scale-[1.03] transition-transform duration-350 ease-out"
+            />
+          ) : (
+            <img
+              src={product.image}
+              alt={product.name}
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-350 ease-out"
+            />
+          )
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-stone-400 text-sm font-medium">Imagen</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-250 pointer-events-none" />
         <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-3 sm:left-3 sm:right-3 flex justify-between items-end">
           <span className="price-tag text-white text-xs sm:text-base lg:text-lg drop-shadow-md truncate max-w-[85%]">
             {product.currency} {product.price.toLocaleString()}
@@ -32,7 +43,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.name}
         </h3>
         <p className="text-ink-tertiary text-xs sm:text-sm mt-0.5 sm:mt-1 line-clamp-2">{product.description}</p>
-        <span className="mt-1.5 sm:mt-3 inline-block text-xs sm:text-sm font-semibold text-brand-600">
+        <span className="mt-1.5 sm:mt-3 inline-block text-xs sm:text-sm font-semibold text-brand-600 transition-transform duration-200 ease-out group-hover:translate-x-0.5">
           Ver →
         </span>
       </div>
