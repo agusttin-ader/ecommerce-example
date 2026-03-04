@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,18 +22,18 @@ const config: Config = {
           500: "#14b8a6",
           600: "#0d9488",
           700: "#0f766e",
-          800: "#115e59",
+          800: "#0e5c54",
           900: "#134e4a",
           950: "#042f2e",
         },
         surface: {
           DEFAULT: "#ffffff",
-          muted: "#f8f7f5",
+          muted: "#fafaf9",
           elevated: "#ffffff",
         },
         ink: {
-          DEFAULT: "#0a0a0a",
-          secondary: "#525252",
+          DEFAULT: "#0c0c0c",
+          secondary: "#404040",
           tertiary: "#737373",
         },
       },
@@ -41,9 +42,12 @@ const config: Config = {
         display: ["var(--font-syne)", "var(--font-dm-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(1.75rem, 4vw + 1rem, 4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "display-lg": ["clamp(1.5rem, 4vw, 3rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
-        "display-md": ["clamp(1.25rem, 2vw + 0.5rem, 2rem)", { lineHeight: "1.2" }],
+        "display-xl": ["clamp(1.875rem, 4vw + 1rem, 4rem)", { lineHeight: "1.08", letterSpacing: "-0.03em" }],
+        "display-lg": ["clamp(1.625rem, 4vw, 3rem)", { lineHeight: "1.12", letterSpacing: "-0.025em" }],
+        "display-md": ["clamp(1.25rem, 2vw + 0.5rem, 2.25rem)", { lineHeight: "1.25", letterSpacing: "-0.02em" }],
+      },
+      letterSpacing: {
+        "tight-premium": "-0.025em",
       },
       minHeight: {
         touch: "44px",
@@ -60,10 +64,11 @@ const config: Config = {
         full: "9999px",
       },
       boxShadow: {
-        soft: "0 2px 15px -3px rgb(0 0 0 / 0.06), 0 10px 20px -2px rgb(0 0 0 / 0.04)",
-        card: "0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04)",
-        "card-hover": "0 20px 40px -12px rgb(0 0 0 / 0.12), 0 8px 16px -8px rgb(0 0 0 / 0.08)",
-        glow: "0 0 0 1px rgb(15 118 110 / 0.1), 0 4px 20px -2px rgb(15 118 110 / 0.2)",
+        soft: "0 1px 3px 0 rgb(0 0 0 / 0.04), 0 6px 16px -4px rgb(0 0 0 / 0.06)",
+        card: "0 1px 2px 0 rgb(0 0 0 / 0.03), 0 2px 8px -2px rgb(0 0 0 / 0.04)",
+        "card-hover": "0 4px 6px -2px rgb(0 0 0 / 0.04), 0 12px 24px -4px rgb(0 0 0 / 0.08), 0 24px 48px -12px rgb(0 0 0 / 0.06)",
+        glow: "0 0 0 1px rgb(15 118 110 / 0.08), 0 2px 12px -2px rgb(15 118 110 / 0.15)",
+        "premium": "0 2px 8px -2px rgb(0 0 0 / 0.05), 0 8px 24px -4px rgb(0 0 0 / 0.08)",
       },
       animation: {
         "fade-in": "fadeIn 0.35s ease-out forwards",
@@ -95,7 +100,9 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "hero-pattern": "radial-gradient(ellipse 80% 50% at 50% -20%, rgb(15 118 110 / 0.12), transparent)",
+        "hero-pattern": "radial-gradient(ellipse 85% 55% at 50% -15%, rgb(15 118 110 / 0.08), transparent)",
+        "hero-pattern-premium": "radial-gradient(ellipse 100% 60% at 50% -10%, rgb(15 118 110 / 0.06), transparent 55%)",
+        "hero-pattern-dark": "radial-gradient(ellipse 100% 60% at 50% -10%, rgb(15 118 110 / 0.12), transparent 55%)",
       },
     },
   },

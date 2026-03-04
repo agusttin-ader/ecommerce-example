@@ -4,15 +4,24 @@
 
 @layer base {
   :root {
-    --color-bg: #f8f7f5;
+    --color-bg: #fafaf9;
     --color-surface: #ffffff;
-    --color-border: #e7e5e4;
+    --color-border: #e5e5e4;
     --color-muted: #737373;
-    --color-text: #0a0a0a;
+    --color-text: #0c0c0c;
     --color-accent: #0f766e;
     --radius: 0.75rem;
     --touch-min: 44px;
     --header-h: 4rem;
+  }
+
+  .dark {
+    --color-bg: #0c0c0c;
+    --color-surface: #171717;
+    --color-border: #262626;
+    --color-muted: #a3a3a3;
+    --color-text: #fafaf9;
+    --color-accent: #2dd4bf;
   }
 
   html {
@@ -35,6 +44,7 @@
 
   body {
     @apply text-ink bg-surface-muted antialiased overflow-x-hidden min-w-0;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   @supports (padding: env(safe-area-inset-top)) {
@@ -58,15 +68,15 @@
   }
 
   .display-heading {
-    @apply font-display font-bold tracking-tight text-ink;
+    @apply font-display font-bold tracking-tight-premium text-ink dark:text-stone-100;
   }
 
   .page-heading {
-    @apply font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink;
+    @apply font-display text-2xl sm:text-3xl font-bold tracking-tight-premium text-ink dark:text-stone-100;
   }
 
   .page-subheading {
-    @apply text-ink-tertiary mt-1 text-sm sm:text-base;
+    @apply text-ink-tertiary mt-1 text-sm sm:text-base dark:text-stone-400;
   }
 
   .btn {
@@ -74,15 +84,15 @@
   }
 
   .btn-primary {
-    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-brand-600 text-white hover:bg-brand-700 focus-visible:ring-brand-500 active:scale-[0.98] shadow-sm hover:shadow-glow;
+    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-brand-700 text-white hover:bg-brand-600 focus-visible:ring-brand-500 active:scale-[0.98] shadow-premium hover:shadow-glow border border-brand-800/20 dark:bg-brand-600 dark:hover:bg-brand-500 dark:border-brand-500/30 dark:ring-offset-stone-950;
   }
 
   .btn-secondary {
-    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-surface border border-stone-200 text-ink-secondary hover:bg-stone-50 hover:text-ink focus-visible:ring-stone-300;
+    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-surface border border-stone-200/90 text-ink-secondary hover:bg-stone-50 hover:text-ink hover:border-stone-300 focus-visible:ring-stone-300 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-stone-800 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-stone-100 dark:ring-offset-stone-950;
   }
 
   .skip-link {
-    @apply absolute left-4 top-4 z-[100] -translate-y-full rounded-xl bg-ink px-4 py-3 text-white font-medium shadow-lg transition-transform focus:outline-none focus-visible:translate-y-0 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2;
+    @apply absolute left-4 top-4 z-[100] -translate-y-full rounded-xl bg-ink px-4 py-3 text-white font-medium shadow-lg transition-transform focus:outline-none focus-visible:translate-y-0 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 dark:bg-stone-100 dark:text-stone-900 dark:ring-offset-stone-950;
   }
 
   .skip-link:not(:focus):not(:focus-visible) {
@@ -90,16 +100,16 @@
   }
 
   .input-touch {
-    @apply min-h-[var(--touch-min)] text-base;
+    @apply min-h-[var(--touch-min)] text-base dark:bg-stone-800 dark:border-stone-600 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus-visible:ring-brand-500 dark:focus-visible:border-transparent;
   }
 
   .nav-link {
-    @apply relative px-3 py-2 text-sm font-medium text-ink-secondary hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:rounded-lg;
+    @apply relative px-3 py-2 text-sm font-medium text-ink-secondary hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:rounded-lg dark:text-stone-400 dark:hover:text-stone-100 dark:ring-offset-stone-950;
   }
 
   .nav-link::after {
     content: "";
-    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-brand-600 scale-x-0 origin-center transition-transform duration-250 ease-out rounded-full;
+    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-brand-600 scale-x-0 origin-center transition-transform duration-250 ease-out rounded-full dark:bg-brand-400;
   }
 
   .nav-link:hover::after,
@@ -107,16 +117,20 @@
     @apply scale-x-100;
   }
 
+  .nav-link[data-active="true"] {
+    @apply text-brand-700 font-medium dark:text-brand-300;
+  }
+
   .link-back {
-    @apply inline-flex items-center gap-1.5 text-sm font-medium text-ink-tertiary hover:text-ink transition-colors;
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-ink-tertiary hover:text-ink transition-colors dark:text-stone-500 dark:hover:text-stone-200;
   }
 
   .card {
-    @apply bg-surface rounded-3xl border border-stone-200/80 shadow-card overflow-hidden;
+    @apply bg-surface rounded-3xl border border-stone-200/70 shadow-card overflow-hidden dark:bg-stone-900 dark:border-stone-700/80 dark:shadow-none;
   }
 
   .card-hover {
-    @apply card transition-[transform,box-shadow,border-color] duration-250 ease-out hover:shadow-card-hover hover:border-stone-300/80 hover:-translate-y-0.5;
+    @apply card transition-[transform,box-shadow,border-color] duration-300 ease-out hover:shadow-card-hover hover:border-stone-200 hover:-translate-y-1 dark:hover:border-stone-600 dark:hover:shadow-xl dark:hover:shadow-black/10;
   }
 
   @media (hover: none) {
@@ -150,12 +164,21 @@
     animation: shimmer 1.5s ease-in-out infinite;
   }
 
+  .dark .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgb(38 38 38 / 0.6) 0%,
+      rgb(64 64 64 / 0.8) 50%,
+      rgb(38 38 38 / 0.6) 100%
+    );
+  }
+
   .price-tag {
-    @apply font-display font-bold text-ink;
+    @apply font-display font-semibold tracking-tight text-ink dark:text-stone-100;
   }
 
   .badge {
-    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-brand-100 text-brand-800;
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-brand-100 text-brand-800 dark:bg-brand-900/50 dark:text-brand-200;
   }
 
   .safe-area-inset-top {

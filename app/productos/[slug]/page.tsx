@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const product = getProductBySlug(slug);
   if (!product) return { title: "Producto no encontrado" };
   return {
-    title: `${product.name} | Ecommerce Example`,
+    title: `${product.name} | Tienda`,
     description: product.description,
     openGraph: {
       title: product.name,

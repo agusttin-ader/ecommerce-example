@@ -3,6 +3,14 @@
  * Etapa 1: estructura. Se ampliarán en etapas posteriores (carrito, pagos).
  */
 
+/** Crédito de imagen (ej. Unsplash). Opcional; completar cuando la foto lo requiera. */
+export interface ImageCredit {
+  /** Nombre del autor (ej. "Jane Doe") */
+  name: string;
+  /** URL del perfil del autor (ej. https://unsplash.com/@usuario) */
+  url: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -11,6 +19,8 @@ export interface Product {
   price: number;
   currency: string;
   image?: string;
+  /** Crédito para la imagen principal (ej. Unsplash). Mostrado solo si está definido. */
+  imageCredit?: ImageCredit;
   images?: string[];
   categoryId: string;
   stock?: number;

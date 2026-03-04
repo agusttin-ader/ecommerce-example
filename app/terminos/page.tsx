@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Términos y condiciones | Ecommerce Example",
+  title: "Términos y condiciones | Tienda",
   description: "Términos y condiciones de uso de la tienda.",
 };
 
@@ -10,12 +10,12 @@ export default function TerminosPage() {
     <div className="container-narrow py-12 sm:py-16 min-w-0 max-w-3xl">
       <h1 className="page-heading">Términos y condiciones</h1>
       <p className="page-subheading mt-1">
-        Página de ejemplo. Reemplazá por tu propio contenido legal.
+        Uso del sitio y compras
       </p>
-      <div className="mt-8 prose prose-stone max-w-none text-ink-secondary text-sm sm:text-base">
+      <div className="mt-8 prose prose-stone max-w-none text-ink-secondary dark:text-stone-400 text-sm sm:text-base">
         <p>
-          Aquí irían los términos y condiciones de tu tienda: uso del sitio, compras, devoluciones,
-          propiedad intelectual, etc. Consultá con un abogado para redactar el texto definitivo.
+          Los términos y condiciones regulan el uso de este sitio y las compras realizadas.
+          Para consultas o reclamos podés contactarnos por los canales indicados en la web.
         </p>
       </div>
     </div>
