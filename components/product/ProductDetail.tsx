@@ -21,8 +21,8 @@ export function ProductDetail({ product }: ProductDetailProps) {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-      <div className="aspect-square bg-stone-100 rounded-3xl overflow-hidden flex items-center justify-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 min-w-0">
+      <div className="aspect-square max-md:aspect-[4/3] bg-stone-100 rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center min-w-0">
         {product.image ? (
           <img
             src={product.image}
@@ -33,32 +33,32 @@ export function ProductDetail({ product }: ProductDetailProps) {
           <span className="text-stone-400 text-sm font-medium">Imagen del producto</span>
         )}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col min-w-0">
         <h1 className="font-display text-display-md text-ink">
           {product.name}
         </h1>
-        <p className="price-tag text-2xl mt-4">
+        <p className="price-tag text-xl sm:text-2xl mt-3 sm:mt-4">
           {product.currency} {product.price.toLocaleString()}
         </p>
-        <p className="mt-6 text-ink-secondary leading-relaxed">{product.description}</p>
+        <p className="mt-4 sm:mt-6 text-ink-secondary leading-relaxed text-sm sm:text-base">{product.description}</p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <div className="flex items-center rounded-xl border border-stone-200 overflow-hidden">
+        <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="flex items-center rounded-xl border border-stone-200 overflow-hidden shrink-0">
             <button
               type="button"
               onClick={() => setQuantity((n) => Math.max(1, n - 1))}
-              className="w-10 h-10 flex items-center justify-center text-ink-secondary hover:bg-stone-100 hover:text-ink transition-colors"
+              className="touch-target w-11 sm:w-12 flex items-center justify-center text-ink-secondary hover:bg-stone-100 active:bg-stone-200 text-ink transition-colors"
               aria-label="Restar cantidad"
             >
               −
             </button>
-            <span className="w-12 text-center font-medium tabular-nums" aria-live="polite">
+            <span className="w-10 sm:w-12 text-center font-medium tabular-nums text-sm sm:text-base" aria-live="polite">
               {quantity}
             </span>
             <button
               type="button"
               onClick={() => setQuantity((n) => n + 1)}
-              className="w-10 h-10 flex items-center justify-center text-ink-secondary hover:bg-stone-100 hover:text-ink transition-colors"
+              className="touch-target w-11 sm:w-12 flex items-center justify-center text-ink-secondary hover:bg-stone-100 active:bg-stone-200 text-ink transition-colors"
               aria-label="Sumar cantidad"
             >
               +
@@ -67,7 +67,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
           <button
             type="button"
             onClick={handleAddToCart}
-            className="btn-primary min-w-[200px]"
+            className="btn-primary w-full sm:min-w-[200px] sm:w-auto"
           >
             Agregar al carrito {quantity > 1 && `(${quantity})`}
           </button>

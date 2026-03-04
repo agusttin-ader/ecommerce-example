@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "400px",
+      },
       colors: {
         brand: {
           50: "#f0fdfa",
@@ -38,9 +41,12 @@ const config: Config = {
         display: ["var(--font-syne)", "var(--font-dm-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(2.5rem, 5vw + 1rem, 4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "display-lg": ["clamp(2rem, 4vw, 3rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
-        "display-md": ["clamp(1.5rem, 2vw, 2rem)", { lineHeight: "1.2" }],
+        "display-xl": ["clamp(1.75rem, 4vw + 1rem, 4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-lg": ["clamp(1.5rem, 4vw, 3rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
+        "display-md": ["clamp(1.25rem, 2vw + 0.5rem, 2rem)", { lineHeight: "1.2" }],
+      },
+      minHeight: {
+        touch: "44px",
       },
       spacing: {
         "18": "4.5rem",

@@ -66,24 +66,24 @@ export function ProductFilters() {
   }, [urlQ]);
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-        <label className="flex-1 w-full sm:max-w-xs">
+    <div className="space-y-5 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center sm:justify-between">
+        <label className="flex-1 w-full sm:max-w-xs min-w-0">
           <span className="sr-only">Buscar productos</span>
           <input
             type="search"
             placeholder="Buscar por nombre o descripción..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            className="w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+            className="input-touch w-full px-4 py-3 rounded-xl border border-stone-200 bg-surface text-ink placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
           />
         </label>
-        <label className="flex items-center gap-2 shrink-0">
+        <label className="flex items-center gap-2 shrink-0 min-w-0">
           <span className="text-sm text-ink-tertiary whitespace-nowrap">Ordenar:</span>
           <select
             value={orden}
             onChange={(e) => setParams({ orden: e.target.value })}
-            className="px-3 py-2 rounded-xl border border-stone-200 bg-surface text-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="input-touch min-w-0 px-3 py-2.5 rounded-xl border border-stone-200 bg-surface text-ink text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -94,33 +94,35 @@ export function ProductFilters() {
         </label>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        <span className="text-sm text-ink-tertiary mr-1 self-center">Categoría:</span>
-        <button
-          type="button"
-          onClick={() => setParams({ categoria: "" })}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-            !categoria
-              ? "bg-brand-600 text-white"
-              : "bg-stone-100 text-ink-secondary hover:bg-stone-200"
-          }`}
-        >
-          Todas
-        </button>
-        {categories.map((cat) => (
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-sm text-ink-tertiary w-full sm:w-auto sm:mr-1 self-center">Categoría:</span>
+        <div className="flex flex-wrap gap-2">
           <button
-            key={cat.id}
             type="button"
-            onClick={() => setParams({ categoria: cat.slug })}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-              categoria === cat.slug
+            onClick={() => setParams({ categoria: "" })}
+            className={`min-h-touch px-3 py-2 rounded-full text-sm font-medium transition-colors ${
+              !categoria
                 ? "bg-brand-600 text-white"
-                : "bg-stone-100 text-ink-secondary hover:bg-stone-200"
+                : "bg-stone-100 text-ink-secondary hover:bg-stone-200 active:bg-stone-300"
             }`}
           >
-            {cat.name}
+            Todas
           </button>
-        ))}
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setParams({ categoria: cat.slug })}
+              className={`min-h-touch px-3 py-2 rounded-full text-sm font-medium transition-colors ${
+                categoria === cat.slug
+                  ? "bg-brand-600 text-white"
+                  : "bg-stone-100 text-ink-secondary hover:bg-stone-200 active:bg-stone-300"
+              }`}
+            >
+              {cat.name}
+            </button>
+          ))}
+        </div>
       </div>
 
       {isPending && (
