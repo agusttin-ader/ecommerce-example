@@ -59,7 +59,7 @@
 
 @layer components {
   .container-narrow {
-    @apply max-w-6xl mx-auto w-full min-w-0 px-4 sm:px-6;
+    @apply max-w-6xl mx-auto w-full min-w-0 px-3 xs:px-4 sm:px-6;
   }
 
   .touch-target {
@@ -88,7 +88,7 @@
   }
 
   .btn-secondary {
-    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-surface border border-stone-200/90 text-ink-secondary hover:bg-stone-50 hover:text-ink hover:border-stone-300 focus-visible:ring-stone-300 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-stone-800 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-stone-100 dark:ring-offset-stone-950;
+    @apply btn px-6 py-3 min-h-[var(--touch-min)] bg-surface border border-stone-200/90 text-ink-secondary hover:bg-stone-50 hover:text-ink hover:border-stone-300 focus-visible:ring-stone-300 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:bg-stone-800 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-stone-100 dark:ring-offset-stone-950 active:scale-[0.98];
   }
 
   .skip-link {
@@ -109,7 +109,7 @@
 
   .nav-link::after {
     content: "";
-    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-brand-600 scale-x-0 origin-center transition-transform duration-250 ease-out rounded-full dark:bg-brand-400;
+    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-brand-600 scale-x-0 origin-center transition-transform duration-300 ease-out rounded-full dark:bg-brand-400;
   }
 
   .nav-link:hover::after,
@@ -187,5 +187,10 @@
 
   .safe-area-inset-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Espacio para la barra de navegación inferior en móvil (con safe area) */
+  .pb-nav {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
   }
 }

@@ -129,10 +129,10 @@ export function ProductFilters() {
           <button
             type="button"
             onClick={() => setParams({ categoria: "" })}
-            className={`min-h-touch px-3 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`min-h-touch px-3 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
               !categoria
                 ? "bg-brand-600 text-white dark:bg-brand-500"
-                : "bg-stone-100 text-ink-secondary hover:bg-stone-200 active:bg-stone-300 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:active:bg-stone-600"
+                : "bg-stone-100 text-ink-secondary hover:bg-stone-200 active:scale-[0.98] dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:active:bg-stone-600"
             }`}
           >
             Todas
@@ -142,10 +142,10 @@ export function ProductFilters() {
               key={cat.id}
               type="button"
               onClick={() => setParams({ categoria: cat.slug })}
-              className={`min-h-touch px-3 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`min-h-touch px-3 py-2 rounded-full text-sm font-medium transition-colors duration-200 active:scale-[0.98] ${
                 categoria === cat.slug
                   ? "bg-brand-600 text-white dark:bg-brand-500"
-                  : "bg-stone-100 text-ink-secondary hover:bg-stone-200 active:bg-stone-300 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:active:bg-stone-600"
+                  : "bg-stone-100 text-ink-secondary hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:active:bg-stone-600"
               }`}
             >
               {cat.name}

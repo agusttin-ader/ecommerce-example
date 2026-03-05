@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <Link href={`/productos/${product.slug}`} className="group block card-hover min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:rounded-3xl dark:focus-visible:ring-offset-stone-950">
+    <Link href={`/productos/${product.slug}`} className="group block card-hover min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:rounded-3xl dark:focus-visible:ring-offset-stone-950 active:scale-[0.99] transition-transform duration-200">
       <div className="relative aspect-[4/3] bg-stone-100 dark:bg-stone-800 overflow-hidden">
         {product.image ? (
           <img

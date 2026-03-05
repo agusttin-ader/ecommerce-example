@@ -6,6 +6,7 @@ import { CartProvider } from "@/context/CartContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { BottomNav } from "@/components/layout/BottomNav";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -57,10 +58,11 @@ export default function RootLayout({
         <ThemeProvider>
           <CartProvider>
             <Header />
-            <main id="main-content" className="flex-1 w-full min-w-0" tabIndex={-1}>
+            <main id="main-content" className="flex-1 w-full min-w-0 pb-nav md:pb-0" tabIndex={-1}>
               {children}
             </main>
             <Footer />
+            <BottomNav />
           </CartProvider>
         </ThemeProvider>
       </body>

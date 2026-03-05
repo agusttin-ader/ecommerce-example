@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { ImageCredit } from "@/components/ui/ImageCredit";
@@ -15,6 +15,12 @@ export function ProductDetail({ product }: ProductDetailProps) {
   const [added, setAdded] = useState(false);
   const { addItem } = useCart();
 
+  useEffect(() => {
+    if (!added) return;
+    const t = setTimeout(() => setAdded(false), 4000);
+    return () => clearTimeout(t);
+  }, [added]);
+
   const handleAddToCart = () => {
     if (quantity < 1) return;
     addItem(product, quantity);
@@ -23,7 +29,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 min-w-0">
-      <div className="aspect-square max-md:aspect-[4/3] bg-stone-100 dark:bg-stone-800 rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center min-w-0 relative">
+      <div className="aspect-square max-md:aspect-[4/3] bg-stone-100 dark:bg-stone-800 rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center min-w-0 relative animate-fade-in">
         {product.image ? (
           <img
             src={product.image}
@@ -80,7 +86,10 @@ export function ProductDetail({ product }: ProductDetailProps) {
         </div>
 
         {added && (
-          <p className="mt-4 text-sm text-brand-600 dark:text-brand-400 font-medium">
+          <p
+            role="status"
+            className="mt-4 text-sm text-brand-600 dark:text-brand-400 font-medium animate-success-in opacity-0"
+          >
             Agregado al carrito.{" "}
             <Link href="/carrito" className="underline hover:no-underline dark:text-brand-400">
               Ver carrito

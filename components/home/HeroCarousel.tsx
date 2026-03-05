@@ -54,7 +54,7 @@ export function HeroCarousel({ products }: HeroCarouselProps) {
 
   return (
     <section className="relative w-full overflow-hidden bg-stone-100 dark:bg-stone-900" aria-label="Productos destacados">
-      <div className="relative w-full aspect-[21/9] min-h-[280px] max-h-[min(55vh,520px)]">
+      <div className="relative w-full aspect-[21/9] min-h-[200px] xs:min-h-[260px] sm:min-h-[280px] max-h-[min(55vh,520px)]">
         {products.map((product, i) => (
           <Link
             key={product.id}

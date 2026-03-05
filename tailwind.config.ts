@@ -52,11 +52,6 @@ const config: Config = {
       minHeight: {
         touch: "44px",
       },
-      spacing: {
-        "18": "4.5rem",
-        "88": "22rem",
-        "128": "32rem",
-      },
       borderRadius: {
         "2xl": "1rem",
         "3xl": "1.5rem",
@@ -75,6 +70,8 @@ const config: Config = {
         "slide-up": "slideUp 0.4s ease-out forwards",
         "card-in": "cardIn 0.35s ease-out forwards",
         "shimmer": "shimmer 1.5s ease-in-out infinite",
+        "pop-in": "popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+        "success-in": "successIn 0.4s ease-out forwards",
       },
       keyframes: {
         fadeIn: {
@@ -93,6 +90,20 @@ const config: Config = {
           "0%, 100%": { backgroundPosition: "200% 0" },
           "50%": { backgroundPosition: "-200% 0" },
         },
+        popIn: {
+          "0%": { opacity: "0", transform: "scale(0.6)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        successIn: {
+          "0%": { opacity: "0", transform: "translateY(6px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      spacing: {
+        "18": "4.5rem",
+        "88": "22rem",
+        "128": "32rem",
+        nav: "5.5rem",
       },
       transitionDuration: {
         250: "250ms",

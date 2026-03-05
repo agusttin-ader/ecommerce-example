@@ -50,10 +50,10 @@ export function Pagination({ currentPage, totalPages, totalCount, perPage }: Pag
         <li>
           <Link
             href={buildUrl(searchParams, currentPage - 1)}
-            className={`inline-flex items-center justify-center min-h-touch min-w-[2.75rem] px-2 rounded-xl text-sm font-medium transition-colors ${
+            className={`inline-flex items-center justify-center min-h-touch min-w-[2.75rem] px-2 rounded-xl text-sm font-medium transition-colors duration-200 active:scale-95 ${
               currentPage <= 1
-                ? "pointer-events-none text-stone-300"
-                : "text-ink-secondary hover:bg-stone-100 hover:text-ink"
+                ? "pointer-events-none text-stone-300 dark:text-stone-600"
+                : "text-ink-secondary hover:bg-stone-100 hover:text-ink dark:hover:bg-stone-800 dark:hover:text-stone-100"
             }`}
             aria-disabled={currentPage <= 1}
             aria-label="Página anterior"
@@ -70,7 +70,7 @@ export function Pagination({ currentPage, totalPages, totalCount, perPage }: Pag
             <li key={n}>
               <Link
                 href={buildUrl(searchParams, n)}
-                className={`inline-flex items-center justify-center min-h-touch min-w-[2.75rem] rounded-xl text-sm font-medium transition-colors ${
+                className={`inline-flex items-center justify-center min-h-touch min-w-[2.75rem] rounded-xl text-sm font-medium transition-colors duration-200 active:scale-95 ${
                   n === currentPage
                     ? "bg-brand-600 text-white dark:bg-brand-500"
                     : "text-ink-secondary hover:bg-stone-100 hover:text-ink dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100"
@@ -86,7 +86,7 @@ export function Pagination({ currentPage, totalPages, totalCount, perPage }: Pag
         <li>
           <Link
             href={buildUrl(searchParams, currentPage + 1)}
-            className={`inline-flex items-center justify-center min-h-touch min-w-[2.75rem] px-2 rounded-xl text-sm font-medium transition-colors ${
+            className={`inline-flex items-center justify-center min-h-touch min-w-[2.75rem] px-2 rounded-xl text-sm font-medium transition-colors duration-200 active:scale-95 ${
               currentPage >= totalPages
                 ? "pointer-events-none text-stone-300 dark:text-stone-600"
                 : "text-ink-secondary hover:bg-stone-100 hover:text-ink dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100"

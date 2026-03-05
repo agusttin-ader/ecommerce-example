@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="mt-auto bg-ink text-white dark:bg-stone-950 dark:border-t dark:border-stone-800 safe-area-inset-bottom">
+    <footer className="mt-auto bg-ink text-white dark:bg-stone-950 dark:border-t dark:border-stone-800 safe-area-inset-bottom pb-nav md:pb-0">
       <div className="h-0.5 w-full bg-gradient-to-r from-brand-600 to-brand-800 min-h-[1px] dark:from-brand-500 dark:to-brand-700" aria-hidden />
       <div className="container-narrow py-10 sm:py-12 lg:py-14">
         <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8">

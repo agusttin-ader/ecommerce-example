@@ -82,11 +82,11 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile nav - each link min 44px height */}
+      {/* Mobile nav - each link min 44px height; animación suave */}
       <div
         id="mobile-nav"
-        className={`md:hidden overflow-hidden transition-all duration-200 ease-out ${
-          mobileOpen ? "max-h-[280px] opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-out ${
+          mobileOpen ? "max-h-[280px] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2"
         }`}
         aria-hidden={!mobileOpen}
       >
